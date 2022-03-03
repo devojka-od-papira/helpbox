@@ -1,0 +1,54 @@
+@import "../../style/color.scss";
+@import "../../style/fonts.scss";
+
+.container {
+  width: 365px;
+  height: 900px;
+  margin: 0% auto;
+  display: flex;
+  align-items: center;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 45px;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    outline: none;
+    border: none;
+    background-color: $bg-input;
+    font-family: $font-main;
+    font-size: $fontSize14;
+    color: $black;
+    margin: 0 0 15px;
+
+    ::placeholder {
+      color: $plh-input;
+    }
+  }
+  .btn {
+    font-family: $font-main;
+    font-size: $fontSize14;
+    background-color: $bg-btn;
+    color: $font-col-btn;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+  .message {
+    text-align: center;
+    font-size: $fontSize14;
+    font-family: $font-main;
+    a {
+      text-decoration: none;
+      color: $text-a;
+    }
+  }
+}

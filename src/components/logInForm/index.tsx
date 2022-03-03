@@ -14,18 +14,9 @@ const LogInForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log("values", values);
-          }}
+          onSubmit={(values) => {}}
         >
-          {({
-            values,
-            handleSubmit,
-            handleChange,
-            errors,
-            handleBlur,
-            touched,
-          }) => {
+          {({ values, handleSubmit, handleChange }) => {
             return (
               <Form className="form" onSubmit={handleSubmit}>
                 <input

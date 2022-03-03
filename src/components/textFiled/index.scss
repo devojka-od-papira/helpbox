@@ -1,0 +1,19 @@
+@import "../../style/color.scss";
+@import "../../style/fonts.scss";
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 6px;
+  .error {
+    color: $error;
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    font-size: $fontSize12;
+    font-family: $font-main;
+  }
+  .label {
+    font-size: $fontSize14;
+    font-family: $font-main;
+  }
+}

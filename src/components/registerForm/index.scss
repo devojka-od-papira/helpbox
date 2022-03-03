@@ -48,7 +48,15 @@
     font-family: $font-main;
     a {
       text-decoration: none;
-      color: $text-a;
+      color: $green;
     }
+  }
+  .success {
+    color: $green;
+    text-align: center;
+  }
+  .error {
+    color: $error;
+    text-align: center;
   }
 }

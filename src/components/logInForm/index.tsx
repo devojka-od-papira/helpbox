@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { validationSchema } from "./validationSchema";
+import { TextField } from "../textFiled";
+import { login } from "../../services";
 import "./index.scss";
 
 const LogInForm = () => {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const initialValues = {
     email: "",
     password: "",
@@ -14,32 +22,36 @@ const LogInForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => {}}
+          onSubmit={(values) => {
+            login(values)
+              .then((response: any) => {
+                localStorage.setItem("token", response.token);
+                console.log(response);
+                navigate("/");
+              })
+              .catch((error) => {
+                console.log(error.message);
+                setError(error.message);
+              });
+          }}
         >
-          {({ values, handleSubmit, handleChange }) => {
+          {({ handleSubmit }) => {
             return (
               <Form className="form" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="E-mail"
-                  value={values.email}
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="password"
-                  placeholder="Password"
-                  value={values.password}
-                  onChange={handleChange}
-                />
-
+                <TextField label="Email" name="email" type="text" />
+                <TextField label="Password" type="password" name="password" />
                 <button className="btn" type="submit">
                   Log in
                 </button>
                 <p className="message">
                   New User? <a href="/register">Create an account</a>
                 </p>
+                {error && (
+                  <p className="error">
+                    {error}
+                    <FontAwesomeIcon icon={faExclamation} />
+                  </p>
+                )}
               </Form>
             );
           }}

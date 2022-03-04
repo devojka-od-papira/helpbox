@@ -14,3 +14,19 @@ export const register = (values: any) => {
       throw new Error(error.response.data.message);
     });
 };
+
+export const login = (values: any) => {
+  return axios
+    .post("http://localhost:8000/api/auth/login", {
+      email: values.email,
+      password: values.password,
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new Error(error.response.data.message);
+    });
+};

@@ -3,23 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder, faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./index.scss";
 
-const Dashboard = () => {
+interface DashboardProps {
+  handleSetOpen: any;
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ handleSetOpen }) => {
   const projects = [
     {
       name: "Project 1",
-      acountId: 1,
+      projectId: 1,
     },
     {
       name: "Project 2",
-      acountId: 2,
+      projectId: 2,
     },
     {
       name: "Project 3",
-      acountId: 3,
+      projectId: 3,
     },
     {
       name: "Project 4",
-      acountId: 4,
+      projectId: 4,
     },
   ];
   return (
@@ -36,7 +40,11 @@ const Dashboard = () => {
         })}
       </ul>
       <div>
-        <button className="btn" type="submit">
+        <button
+          className="btn"
+          type="submit"
+          onClick={() => handleSetOpen(true)}
+        >
           <FontAwesomeIcon className="icon" icon={faPlus} />
           create project
         </button>

@@ -1,0 +1,23 @@
+@import "./../../style/color.scss";
+.dialog-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  position: absolute;
+
+  .container {
+    width: 350px;
+    height: 400px;
+    background-color: rgb(195, 213, 230);
+  }
+
+  .icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: $green;
+  }
+}

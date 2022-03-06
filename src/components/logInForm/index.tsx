@@ -26,6 +26,7 @@ const LogInForm = () => {
             login(values)
               .then((response: any) => {
                 localStorage.setItem("token", response.token);
+                localStorage.setItem("accountId", response.accountId);
                 console.log(response);
                 navigate("/");
               })

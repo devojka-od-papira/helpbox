@@ -5,32 +5,15 @@ import "./index.scss";
 
 interface DashboardProps {
   handleSetOpen: any;
+  projects: any;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ handleSetOpen }) => {
-  const projects = [
-    {
-      name: "Project 1",
-      projectId: 1,
-    },
-    {
-      name: "Project 2",
-      projectId: 2,
-    },
-    {
-      name: "Project 3",
-      projectId: 3,
-    },
-    {
-      name: "Project 4",
-      projectId: 4,
-    },
-  ];
+const Dashboard: React.FC<DashboardProps> = ({ handleSetOpen, projects }) => {
   return (
     <div className="dashboard-wrapper">
       <h1 className="logo">Help Box</h1>
       <ul>
-        {projects.map((project, index) => {
+        {projects.map((project: any, index: number) => {
           return (
             <li key={index}>
               <FontAwesomeIcon className="icon" icon={faFolder} />

@@ -30,3 +30,16 @@ export const login = (values: any) => {
       throw new Error(error.response.data.message);
     });
 };
+export const getProjects = (accountId: string | null) => {
+  return axios
+    .post("http://localhost:8000/api/dashboard/projects", {
+      accountId,
+    })
+    .then((response) => {
+      console.log("getProjects", response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log("getProjectsError", error);
+    });
+};

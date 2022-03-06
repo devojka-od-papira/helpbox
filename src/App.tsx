@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./view/register";
 import Home from "./../src/view/home";
 import LogIn from "./view/logIn";
+import "./style/reset.scss";
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
       </BrowserRouter>
     </>

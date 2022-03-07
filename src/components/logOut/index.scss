@@ -1,0 +1,21 @@
+@import "./../../style/fonts.scss";
+@import "./../../style/color.scss";
+
+.btn-wrapper {
+  position: relative;
+
+  .btn {
+    font-family: $font-main;
+    font-size: $fontSize12;
+    background-color: $green;
+    color: $font-col-btn;
+    outline: none;
+    border: none;
+    padding: 15px;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100px;
+    top: 30px;
+    right: 30px;
+  }
+}

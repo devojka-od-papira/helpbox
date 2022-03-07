@@ -43,3 +43,21 @@ export const getProjects = (accountId: string | null) => {
       console.log("getProjectsError", error);
     });
 };
+export const createProjectService = (
+  name: string,
+  accountId: string | null
+) => {
+  return axios
+    .post("http://localhost:8000/api/dashboard/project", {
+      accountId,
+      name,
+    })
+    .then((response) => {
+      console.log("createProjectsSe", response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log("errorSer", error);
+      throw new Error(error.response.data.message);
+    });
+};

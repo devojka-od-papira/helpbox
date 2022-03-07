@@ -6,6 +6,7 @@ import { getProjects } from "../../services";
 
 function Home() {
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
     const accountId = localStorage.getItem("accountId");
     getProjects(accountId)
@@ -22,7 +23,7 @@ function Home() {
     <div>
       {open ? (
         <Dialog handleDialog={setOpen}>
-          <CreateProject />
+          <CreateProject projects={projects} setProjects={setProjects} />
         </Dialog>
       ) : null}
       <Dashboard projects={projects} handleSetOpen={setOpen} />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { validationSchema } from "./validationSchema";
 import { TextField } from "../textFiled";
 import { login } from "../../services";
@@ -16,6 +16,7 @@ const LogInForm = () => {
     email: "",
     password: "",
   };
+
   return (
     <>
       <div className="container">
@@ -50,7 +51,7 @@ const LogInForm = () => {
                 {error && (
                   <p className="error">
                     {error}
-                    <FontAwesomeIcon icon={faExclamation} />
+                    <FontAwesomeIcon icon={faTriangleExclamation} />
                   </p>
                 )}
               </Form>

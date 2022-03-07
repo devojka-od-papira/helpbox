@@ -14,10 +14,12 @@ const Dashboard: React.FC<DashboardProps> = ({ handleSetOpen, projects }) => {
       <h1 className="logo">Help Box</h1>
       <ul>
         {projects.map((project: any, index: number) => {
+          console.log("project", project);
           return (
             <li key={index}>
               <FontAwesomeIcon className="icon" icon={faFolder} />
-              {project.name}
+
+              {project.name || project.projectName}
             </li>
           );
         })}

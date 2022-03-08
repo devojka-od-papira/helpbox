@@ -2,7 +2,7 @@
 @import "../../style/fonts.scss";
 
 .dashboard-wrapper {
-  width: 280px;
+  width: 280px !important;
   height: 100vh;
   background-color: $bg-dashboard;
   box-sizing: border-box;
@@ -22,12 +22,15 @@
   ul {
     text-align: start;
 
-    li {
-      color: black;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 14px;
-      font-size: $fontSize16;
+    a {
+      text-decoration: none;
+      li {
+        color: black;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 14px;
+        font-size: $fontSize16;
+      }
     }
   }
   div {

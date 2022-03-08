@@ -53,11 +53,36 @@ export const createProjectService = (
       name,
     })
     .then((response) => {
-      console.log("createProjectsSe", response);
       return response.data;
     })
     .catch((error) => {
-      console.log("errorSer", error);
+      throw new Error(error.response.data.message);
+    });
+};
+export const getProjectChannels = (id: string | undefined) => {
+  return axios
+    .post("http://localhost:8000/api/dashboard/single-project", {
+      projectId: id,
+    })
+    .then((response) => {
+      return response.data.project;
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+};
+export const createChannelsList = (name: string, projectId: string) => {
+  return axios
+    .post("http://localhost:8000/api/dashboard/list", {
+      name,
+      projectId,
+    })
+    .then((response) => {
+      console.log("serListChannel", response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log("errorChannelLIST", error);
       throw new Error(error.response.data.message);
     });
 };

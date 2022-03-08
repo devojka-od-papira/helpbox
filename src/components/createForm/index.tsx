@@ -4,17 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { TextField } from "../textFiled";
 import { validationSchema } from "./validationSchema";
-import { createProjectService } from "../../services";
 import "./index.scss";
 
-interface CreateProjectProps {
-  setProjects: (projects: any) => void;
-  projects: any;
+interface CreateFormProps {
+  onSubmit: any;
+  id: string | null | undefined;
+  handleUpdate: any;
 }
 
-const CreateProject: React.FC<CreateProjectProps> = ({
-  setProjects,
-  projects,
+const CreateForm: React.FC<CreateFormProps> = ({
+  onSubmit,
+  id,
+  handleUpdate,
 }) => {
   const [error, setError] = useState("");
   const initialValues = {
@@ -27,14 +28,14 @@ const CreateProject: React.FC<CreateProjectProps> = ({
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            const accountId = localStorage.getItem("accountId");
             console.log("values", values);
-            createProjectService(values.projectName, accountId)
-              .then((response) => {
+
+            onSubmit(values.projectName, id)
+              .then((response: any) => {
                 console.log(response);
-                setProjects([...projects, response.project]);
+                handleUpdate(response);
               })
-              .catch((error) => {
+              .catch((error: any) => {
                 console.log(error);
                 setError(error.message);
               });
@@ -61,4 +62,4 @@ const CreateProject: React.FC<CreateProjectProps> = ({
     </>
   );
 };
-export default CreateProject;
+export default CreateForm;
